@@ -1,0 +1,48 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loup-Garou - {% block title %}{% endblock %}</title>
+    <!-- Lien vers la feuille de style -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- Police Creepster pour un côté mystérieux -->
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+</head>
+<header>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="{% url 'liste_personnages' %}" class="nav-logo">Loup-Garou</a>
+            <ul class="nav-links">
+                <li><a href="{% url 'liste_personnages' %}">Personnages</a></li>
+                <li><a href="{% url 'aide' %}">Aide</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<body class="{% if cycle.periode == 'jour' %}jour{% else %}nuit{% endif %}">
+    <!-- Contenu principal -->
+    <main class="container">
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            <div class="message {{ message.tags }}">
+                {{ message }}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <p>Cycle actuel : {{ cycle.periode }}</p>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+<!-- Footer -->
+<footer class="footer">
+    <p>&copy; 2024 Jeu du Loup-Garou - Tanguy HARNAY</p>
+</footer>
+
+</html>

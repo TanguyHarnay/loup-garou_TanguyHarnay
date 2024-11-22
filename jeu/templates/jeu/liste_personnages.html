@@ -1,0 +1,42 @@
+{% extends 'jeu/base.html' %}
+{% load static %}
+
+{% block title %}Liste des Personnages{% endblock %}
+
+{% block content %}
+<h1 class="titre">Liste des Personnages</h1>
+<div class="personnages-grid">
+    {% for personnage in personnages %}
+    <div class="personnage-card {% if personnage.etat == 'mort' %}mort{% endif %}">
+        <div class="personnage-info">
+            <h2>
+                <a href="{% url 'detail_personnage' id_personnage=personnage.id_personnage %}">
+                    {{ personnage.id_personnage }}
+                </a>
+            </h2>
+            
+            <div class="personnage-images">
+                <img src="{% static 'images/'|add:personnage.role|add:'.jpeg' %}" alt="{{ personnage.role }}" class="personnage-image">
+                {% if personnage.est_protege %}
+                    <img src="{% static 'images/shield.jpeg' %}" alt="Bouclier" class="shield-image">
+                {% endif %}
+            </div>
+
+            <p class="role">Rôle: {{ personnage.get_role_display }}</p>
+            <p class="etat {% if personnage.etat == 'vivant' %}vivant{% elif personnage.etat == 'mort' %}mort{% endif %}">État: {{ personnage.get_etat_display }}</p>
+            <p class="lieu">Lieu: {{ personnage.lieu.nom }}</p>
+            
+            {% if personnage.est_protege %}
+                <p class="protection">Protégé: Oui</p>
+            {% else %}
+                <p class="protection-not">Protégé: Non</p>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+    <form method="POST" action="{% url 'basculer_cycle' %}">
+        {% csrf_token %}
+        <button type="submit" class="btn-basculer-cycle">Basculer le cycle</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'jeu/base.html' %}
+
+{% block content %}
+<h1 class="id-personnage">{{ personnage.id_personnage }}</h1>
+<div class="detail-personnage">
+    <p>Rôle: {{ personnage.role }}</p>
+    <p>État: {{ personnage.etat }}</p>
+    <p>Lieu actuel: {{ personnage.lieu.nom }}</p>
+    <p>Capacité du lieu: {{ personnage.lieu.taille_max }} personnages</p>
+    <p>Autres personnages dans le même lieu : </p>
+    <ul>
+        {% for autre in personnages_dans_lieu %}
+            {% if autre != personnage %}
+            <li>{{ autre.id_personnage }} ({{ autre.role }})</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+    <h2>Déplacement</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form_deplacement.as_p }}
+        <button type="submit">Déplacer</button>
+    </form>
+
+    {% if personnage.role in 'loup_garou,sorciere,garde' %}
+    <h2>Actions spéciales</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form_action.as_p }}
+        <button type="submit">Effectuer l'action</button>
+    </form>
+    {% endif %}
+
+    
+    
+</div>
+{% endblock %}
+

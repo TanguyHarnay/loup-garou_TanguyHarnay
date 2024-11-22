@@ -1,0 +1,198 @@
+/* Global Settings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    margin: 0;
+    font-family: 'Creepster', cursive;
+    background-color: #121212;
+    color: #f0f0f0;
+    line-height: 1.6;
+    padding-bottom: 120px;
+    width: 100%;
+}
+
+body.jour {
+    background-color: #f7f7f7; /* Fond gris clair pour le jour */
+    color: #333; /* Texte gris foncé pour une bonne lisibilité */
+}
+
+/* Fond de page - Nuit */
+body.nuit {
+    background-color: #121212; /* Fond noir pour la nuit */
+    color: #f0f0f0; /* Texte en blanc pour une bonne lisibilité */
+}
+
+/* Main Title */
+.titre {
+    font-size: 50px;
+    color: #ff6f61 !important; /* Couleur principale pour le titre */
+    margin-bottom: 20px;
+    text-align: center; /* Centrer le titre pour une meilleure présentation */
+}
+
+/* Subtitles (h2) */
+h2 {
+    font-size: xx-large;
+    margin-bottom: 10px;
+    color: #ff6f61 !important; /* Rouge pour les sous-titres */
+}
+
+/* Paragraphs */
+p {
+    font-size: x-large;
+    line-height: 1.5;
+    color: #333 !important; /* Assurez-vous que le texte est facilement lisible en période jour */
+}
+
+/* ID Personnage */
+.id-personnage {
+    color: #8a2be2; /* Violet */
+    font-weight: bold; /* Optionnel : mettre en gras */
+    text-align: center; /* Optionnel : centrer le texte */
+    margin-bottom: 20px; /* Espacement sous l'ID */
+}
+
+/* Navbar */
+.navbar {
+    background-color: #333 !important;
+    position: fixed;
+    top: 0;
+    width: 100% !important; /* Prend toute la largeur de la fenêtre */
+    z-index: 1000; /* Priorité d'affichage */
+    box-shadow: 0 4px 2px -2px gray; /* Effet ombré subtil */
+    padding: 10px 20px;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    font-size: 1.8em;
+    color: #f0f0f0 !important;
+    text-decoration: none;
+    font-family: 'Creepster', cursive;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links li a {
+    color: #f0f0f0 !important;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #ff6f61 !important;
+}
+
+/* Notification Messages */
+.messages {
+    margin-bottom: 20px;
+}
+
+.message {
+    background-color: #333 !important;
+    border: 1px solid #444;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+.message.success {
+    background-color: #28a745 !important; /* Vert */
+    color: #fff !important;
+}
+
+.message.error {
+    background-color: #dc3545 !important; /* Rouge */
+    color: #fff !important;
+}
+
+.message.info {
+    background-color: #17a2b8 !important; /* Bleu */
+    color: #fff !important;
+}
+
+/* Footer */
+.footer {
+    background-color: #333 !important;
+    color: #f0f0f0 !important;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    padding: 10px;
+}
+
+/* Role Styling */
+.protection {
+    font-weight: bold;
+    color: green !important;
+}
+
+.protection-not {
+    color: red !important;
+}
+
+.etat {
+    font-weight: bold;
+}
+
+.vivant {
+    color: green !important; /* Vert pour les personnages vivants */
+}
+
+.mort {
+    color: red !important; /* Rouge pour les personnages morts */
+}
+
+.mort .role, .mort .lieu {
+    color: inherit !important; /* Ne pas affecter le rôle et le lieu quand le personnage est mort */
+}
+
+/* Characters and Images */
+.personnage-images {
+    display: flex;
+    align-items: center !important; /* Alignement vertical des images */
+}
+
+.personnage-image {
+    height: auto !important;
+    margin-right: 20px !important; /* Espacement entre les images */
+}
+
+.shield-image {
+    height: auto !important;
+}
+
+/* Role Colors */
+.role-bien {
+    color: #28a745 !important; /* Vert pour les rôles gentils */
+}
+
+.role-mal {
+    color: #dc3545 !important; /* Rouge pour les rôles méchants */
+}
+
+/* Alignment and Margins */
+.container {
+    padding: 120px;
+    margin-top: 0px; /* Espace pour éviter que le contenu chevauche la navbar */
+}

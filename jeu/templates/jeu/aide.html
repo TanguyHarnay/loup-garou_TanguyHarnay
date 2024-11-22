@@ -1,0 +1,33 @@
+{% extends 'jeu/base.html' %}
+{% load static %}
+
+{% block title %}Aide{% endblock %}
+
+{% block content %}
+    <h1 class="titre">Règles du jeu : </h1>
+    <br/>
+    <p> Il y a 4 rôles disponibles : loup-garou, sorcière, villageois et garde</p>
+    <br/>
+
+    <h2> Le Loup-Garou : </h2>
+    <p class="role-mal"> Le loup-garou ne peut tuer que les personnages qui se trouvent au même endroit que le loup-garou et seulement la nuit.</p>
+    <br/>
+
+    <h2> La sorcière : </h2>
+    <p class="role-bien"> La sorcière peut ressusciter un personnage la nuit.</p>
+    <br/>
+
+    <h2> Le Garde : </h2>
+    <p class="role-bien"> Le garde peut protéger une personne seulement en journée. Une personne protégée voit un bouclier apparaître à côté de son personnage.</p>
+    <p class="role-bien"> Si le loup-garou tente de tuer un personnage protégé, celui-ci perd son bouclier et devient vulnérable.</p>
+    <br/>
+
+    <h2> Le Villageois : </h2>
+    <p class="role-bien"> Le villageois n'a aucun pouvoir.</p>
+    
+    <br/>
+    <h2> Créer un Nouveau Personnage / Lieu :</h2>
+    <p> Vous pouvez créer de nouveaux personnages et lieux via le panneau d'administration de Django. Les lieux ont des fonctions spécifiques, comme la maison qui protège ceux qui s'y trouvent. Les personnages peuvent être créés avec des rôles différents tels que Loup-Garou, Sorcière, Garde ou Villageois.</p>
+    <p> Pour ajouter un personnage, rendez-vous dans le panneau d'administration de Django et sélectionnez "Personnages" dans le menu. Vous pourrez alors créer un nouveau personnage avec les attributs souhaités (rôle, lieu, etc.). </p>
+    <a href="{% url 'admin:index' %}" target="_blank">Accédez à l'administration de Django</a>
+{% endblock %}
